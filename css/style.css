@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  font-family: var(--body-font);
 }
 
 body {
@@ -41,14 +41,21 @@ header {
 
 header i {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 0rem; /* 1.5 */
   margin-right: 1rem;
 }
 
+.container.active header i {
+  font-size: 1.5rem;
+}
+
 .input_box {
-  display: none;
   margin: 1.5rem;
   text-align: center;
+}
+
+.container.active .input_box {
+  display: none;
 }
 
 .info {
@@ -97,4 +104,83 @@ button {
   background-color: var(--primary-color);
   border: none;
   border-radius: 0.3rem;
+}
+
+.weather_box {
+  margin: 1rem 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container.active .weather_box {
+  display: flex;
+}
+
+.weather_box img {
+  width: 60%;
+}
+
+.temp {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.temp .numb {
+  font-weight: 600;
+}
+
+.temp .deg {
+  font-size: 1.5rem;
+  margin: 0.1rem 0.5rem 0 0;
+}
+
+.weather,
+.location {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location i {
+  margin-right: 0.5rem;
+}
+
+.bottom_details {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.bottom_details .column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column i {
+  color: #4682b4;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.details .temp,
+.humidity .details .numb {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.details .temp .deg {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 0.3rem 0 0.1rem;
+}
+
+.details p {
+  margin-top: -0.5rem;
 }
