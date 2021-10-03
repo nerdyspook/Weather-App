@@ -31,7 +31,7 @@ function onSuccess(position) {
     console.log(position);
 
     const {latitude, longitude} = position.coords;
-    api = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    api = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
 }
 
 function onError(error) {
@@ -41,7 +41,7 @@ function onError(error) {
 
 function requestApi(city) {
     const apiKey = `cc3d753d882630b65eb6f97808404b92`;
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     fetchData();
 }
 
@@ -64,6 +64,12 @@ function weatherDetails(info) {
         const country = info.sys.country;
         const {description, id} = info.weather[0];
         const {feels_like, humidity, temp} = info.main;
+
+        container.querySelector(".temp .numb").innerText = Math.floor(temp);
+        container.querySelector(".weather").innerText = description.toUpperCase();
+        container.querySelector(".location span").innerText = `${city}, ${country}`;
+        container.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
+        container.querySelector(".humidity span").innerText = `${humidity}%`;
 
 
         infoText.classList.remove("pending", "error");
