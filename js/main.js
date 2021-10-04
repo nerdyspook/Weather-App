@@ -31,7 +31,8 @@ function onSuccess(position) {
     console.log(position);
 
     const {latitude, longitude} = position.coords;
-    api = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    fetchData();
 }
 
 function onError(error) {
