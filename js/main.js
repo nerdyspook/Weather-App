@@ -3,6 +3,8 @@ const inputBox = document.querySelector(".input_box");
 const infoText = document.querySelector(".info");
 const inputField = document.querySelector("input");
 const locationBtn = document.querySelector("button");
+const weatherIcon = document.querySelector(".weather_box img");
+
 let api;
 
 
@@ -65,6 +67,21 @@ function weatherDetails(info) {
         const country = info.sys.country;
         const {description, id} = info.weather[0];
         const {feels_like, humidity, temp} = info.main;
+
+        // Custom icons according to weather
+        if(id == 800){
+            weatherIcon.src = "/img/icons/clear.svg";
+        } else if ( id >= 200 && id <= 232){
+            weatherIcon.src = "/img/icons/storm.svg";
+        } else if ( id >= 600 && id <= 6222){
+            weatherIcon.src = "/img/icons/snow.svg";
+        } else if ( id >= 701 && id <= 781){
+            weatherIcon.src = "/img/icons/haze.svg";
+        } else if ( id >= 801 && id <= 804){
+            weatherIcon.src = "/img/icons/cloud.svg";
+        } else if (( id >= 300 && id <= 321) || ( id >=500 && id <= 531 ){
+            weatherIcon.src = "/img/icons/rain.svg";
+        }
 
         container.querySelector(".temp .numb").innerText = Math.floor(temp);
         container.querySelector(".weather").innerText = description.toUpperCase();
