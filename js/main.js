@@ -79,7 +79,7 @@ function weatherDetails(info) {
             weatherIcon.src = "/img/icons/haze.svg";
         } else if ( id >= 801 && id <= 804){
             weatherIcon.src = "/img/icons/cloud.svg";
-        } else if (( id >= 300 && id <= 321) || ( id >=500 && id <= 531 ){
+        } else if (( id >= 300 && id <= 321) || ( id >=500 && id <= 531 )){
             weatherIcon.src = "/img/icons/rain.svg";
         }
 
