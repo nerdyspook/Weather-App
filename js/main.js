@@ -4,10 +4,13 @@ const infoText = document.querySelector(".info");
 const inputField = document.querySelector("input");
 const locationBtn = document.querySelector("button");
 const weatherIcon = document.querySelector(".weather_box img");
+const backArrow = document.querySelector(".fa-arrow-left");
 
 let api;
 
-
+backArrow.addEventListener("click", () => {
+    container.classList.remove("active");
+})
 
 inputField.addEventListener("keyup", element => {
     // If user press enter without empty value
